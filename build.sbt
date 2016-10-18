@@ -34,9 +34,9 @@ lazy val sharedSettings = MimaSettings.settings ++ Seq(
     username, password
   )).toSeq,
 
-  scalaVersion := "2.12.0-RC1",
+  scalaVersion := "2.12.0-RC2",
 
-  crossScalaVersions := Seq("2.10.6", "2.11.8", "2.12.0-RC1"),
+  crossScalaVersions := Seq("2.10.6", "2.11.8", "2.12.0-RC2"),
 
   unmanagedSourceDirectories in Compile += (baseDirectory in LocalRootProject).value / "src" / "main" / "scala",
 
