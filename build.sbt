@@ -1,8 +1,8 @@
 sourceDirectory := file("dummy source directory")
 
-lazy val versionNumber = "1.12.6"
+lazy val versionNumber = "1.12.7"
 
-lazy val isRelease = true
+lazy val isRelease = false
 
 lazy val travisCommit = Option(System.getenv().get("TRAVIS_COMMIT"))
 
@@ -52,7 +52,7 @@ lazy val sharedSettings = MimaSettings.settings ++ Seq(
 
   mimaPreviousArtifacts := (
     if (CrossVersion isScalaApiCompatible scalaVersion.value)
-      Set("org.scalacheck" %%% "scalacheck" % "1.12.4")
+      Set("org.scalacheck" %%% "scalacheck" % "1.12.6")
     else
       Set.empty
   ),
