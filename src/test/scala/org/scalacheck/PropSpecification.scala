@@ -12,7 +12,7 @@ package org.scalacheck
 import Prop.{
   forAll, falsified, undecided, exception, passed, proved, all,
   atLeastOne, sizedProp, someFailing, noneFailing, Undecided, False, True,
-  Exception, Proof, within, throws, BooleanOperators, secure, delay, lzy
+  Exception, Proof, within, throws, propBoolean, secure, delay, lzy
 }
 import Gen.{
   const, fail, frequency, oneOf, choose, listOf, listOfN,
