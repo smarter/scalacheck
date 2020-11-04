@@ -157,11 +157,14 @@ lazy val sharedSettings = MimaSettings.settings ++ scalaVersionSettings ++ Seq(
   )
 )
 
+val scala3Version = "3.0.0-M1"
+
 lazy val js = project.in(file("js"))
   .settings(sharedSettings: _*)
   .settings(
+    crossScalaVersions += scala3Version,
     Global / scalaJSStage := FastOptStage,
-    libraryDependencies += "org.scala-js" %% "scalajs-test-interface" % scalaJSVersion
+    libraryDependencies += ("org.scala-js" %% "scalajs-test-interface" % scalaJSVersion).withDottyCompat(scalaVersion.value)
   )
   .enablePlugins(ScalaJSPlugin)
 
@@ -172,7 +175,7 @@ lazy val jvm = project.in(file("jvm"))
       if (isDotty.value) Seq()
       else (Compile / doc/ sources).value
     },
-    crossScalaVersions += "3.0.0-M1",
+    crossScalaVersions += scala3Version,
     Test / fork := {
       // Serialization issue in 2.13 and later
       scalaMajorVersion.value == 13 || isDotty.value // ==> true
